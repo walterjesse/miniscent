@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collection | MiniScent-Bar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .page-header { background: linear-gradient(to bottom, var(--cream-light), var(--cream)); padding: 120px 0 60px; text-align: center; }
+    .page-header h1 { font-family: var(--font-serif); font-size: 3rem; color: var(--charcoal); }
+    .collection-full { padding: 60px 0 100px; background: var(--cream); }
+    .filters { display: flex; gap: 15px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
+    .filter-btn { padding: 10px 25px; border-radius: 50px; border: 1px solid var(--gold); background: transparent; color: var(--charcoal); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: 0.3s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--gold); color: var(--dark); }
+    .collection-grid-full { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+  </style>
+</head>
+<body>
+  <nav class="navbar scrolled light" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="https://via.placeholder.com/80x80/C9A96E/FFFFFF?text=MSB" alt="MiniScent-Bar">
+        <div class="logo-text">
+          <span class="logo-main" style="color: var(--charcoal);">MiniScent</span>
+          <span class="logo-accent">-Bar</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="collection.html">Collection</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#fragrance-journey" class="btn-primary">Start Journey</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Our Collection</h1>
+      <p>30ml luxury fragrances, each with custom name engraving</p>
+    </div>
+  </header>
+
+  <section class="collection-full">
+    <div class="container">
+      <div class="filters">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Floral</button>
+        <button class="filter-btn">Woody</button>
+        <button class="filter-btn">Fresh</button>
+        <button class="filter-btn">Oriental</button>
+      </div>
+      
+      <div class="collection-grid-full">
+        <div class="perfume-card"><div class="card-image"><img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=600&fit=crop" alt="Santal 33"><div class="card-overlay"><p class="brand">Le Labo</p><h3>Santal 33</h3><p class="type">Woody & Rich</p><span class="price">Ksh 3,000</span><button class="btn-primary btn-small" onclick="orderPerfume('Santal 33')">Order</button></div></div></div>
+        <div class="perfume-card"><div class="card-image"><img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&h=600&fit=crop" alt="Baccarat Rouge"><div class="card-overlay"><p class="brand">MFK</p><h3>Baccarat Rouge</h3><p class="type">Amber Floral</p><span class="price">Ksh 3,000</span><button class="btn-primary btn-small" onclick="orderPerfume('Baccarat Rouge')">Order</button></div></div></div>
+        <div class="perfume-card"><div class="card-image"><img src="https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=400&h=600&fit=crop" alt="Oud Wood"><div class="card-overlay"><p class="brand">Tom Ford</p><h3>Oud Wood</h3><p class="type">Smoky & Warm</p><span class="price">Ksh 3,000</span><button class="btn-primary btn-small" onclick="orderPerfume('Oud Wood')">Order</button></div></div></div>
+        <div class="perfume-card"><div class="card-image"><img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400&h=600&fit=crop" alt="Libre"><div class="card-overlay"><p class="brand">YSL</p><h3>Libre</h3><p class="type">Bold Lavender</p><span class="price">Ksh 3,000</span><button class="btn-primary btn-small" onclick="orderPerfume('Libre')">Order</button></div></div></div>
+        <div class="perfume-card"><div class="card-image"><img src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=400&h=600&fit=crop" alt="Good Girl"><div class="card-overlay"><p class="brand">Carolina Herrera</p><h3>Good Girl</h3><p class="type">Sweet & Dark</p><span class="price">Ksh 3,000</span><button class="btn-primary btn-small" onclick="orderPerfume('Good Girl')">Order</button></div></div></div>
+        <div class="perfume-card"><div class="card-image"><img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400&h=600&fit=crop" alt="Aventus"><div class="card-overlay"><p class="brand">Creed</p><h3>Aventus</h3><p class="type">Fruity & Rich</p><span class="price">Ksh 3,000</span><button class="btn-primary btn-small" onclick="orderPerfume('Aventus')">Order</button></div></div></div>
+        <div class="perfume-card"><div class="card-image"><img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&h=600&fit=crop" alt="Love Don't Be Shy"><div class="card-overlay"><p class="brand">Kilian</p><h3>Love Don't Be Shy</h3><p class="type">Gourmand & Sweet</p><span class="price">Ksh 3,000</span><button class="btn-primary btn-small" onclick="orderPerfume('Love Dont Be Shy')">Order</button></div></div></div>
+        <div class="perfume-card"><div class="card-image"><img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=600&fit=crop" alt="Noir Extreme"><div class="card-overlay"><p class="brand">Tom Ford</p><h3>Noir Extreme</h3><p class="type">Spicy & Warm</p><span class="price">Ksh 3,000</span><button class="btn-primary btn-small" onclick="orderPerfume('Noir Extreme')">Order</button></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2024 MiniScent-Bar. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function orderPerfume(name) {
+      const message = encodeURIComponent(`Hi! I'd like to order "${name}" from MiniScent-Bar`);
+      window.open(`https://wa.me/?text=${message}`, '_blank');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniScent-Bar | Kenya's TOP Perfume Bar</title>
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="c:\Users\HP\Downloads\projects\miniscent-bar-vanilla\css\logo.png"  alt="MiniScent-Bar Logo">
+        <div class="logo-text">
+          <span class="logo-main">MiniScent</span>
+          <span class="logo-accent">-Bar</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="collection.html">Collection</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="#fragrance-journey" class="btn-primary">Start Journey</a>
+      </div>
+
+      <button class="mobile-toggle" id="mobileToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="about.html">About</a>
+      <a href="collection.html">Collection</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="#fragrance-journey" class="btn-primary">Start Journey</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=1920&q=80" alt="Luxury perfumes">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="floating-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <div class="floating-bottles">
+      <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=200&h=300&fit=crop" alt="" class="bottle-right">
+      <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=240&h=360&fit=crop" alt="" class="bottle-left">
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-subtitle">
+        <span class="line"></span>
+        <p>Kenya's TOP Perfume Bar</p>
+        <span class="line"></span>
+      </div>
+      <h1>Create Your<br><span class="gold-text italic">Signature Scent</span></h1>
+      <p class="hero-desc">An experiential retail space where you craft bespoke fragrances. Perfect for corporate events, weddings, and luxury social experiences.</p>
+      <div class="hero-buttons">
+        <a href="#fragrance-journey" class="btn-primary btn-large">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Create Your Scent
+        </a>
+        <a href="collection.html" class="btn-outline btn-large">
+          Explore Collection
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Collection -->
+  <section id="collection" class="section collection-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">The Collection</p>
+        <h2>Featured Minis</h2>
+        <p class="section-desc">30ml luxury fragrances — perfect for sampling, gifting, or travel.</p>
+      </div>
+
+      <div class="collection-grid">
+        <div class="perfume-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=600&fit=crop" alt="Santal 33">
+            <div class="card-overlay">
+              <p class="brand">Le Labo</p>
+              <h3>Santal 33</h3>
+              <p class="type">Woody & Rich</p>
+              <span class="price">Ksh 3,000</span>
+              <button class="btn-primary btn-small" onclick="orderPerfume('Santal 33')">Order</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="perfume-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&h=600&fit=crop" alt="Baccarat Rouge">
+            <div class="card-overlay">
+              <p class="brand">MFK</p>
+              <h3>Baccarat Rouge</h3>
+              <p class="type">Amber Floral</p>
+              <span class="price">Ksh 3,000</span>
+              <button class="btn-primary btn-small" onclick="orderPerfume('Baccarat Rouge')">Order</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="perfume-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=400&h=600&fit=crop" alt="Oud Wood">
+            <div class="card-overlay">
+              <p class="brand">Tom Ford</p>
+              <h3>Oud Wood</h3>
+              <p class="type">Smoky & Warm</p>
+              <span class="price">Ksh 3,000</span>
+              <button class="btn-primary btn-small" onclick="orderPerfume('Oud Wood')">Order</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="perfume-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400&h=600&fit=crop" alt="Libre">
+            <div class="card-overlay">
+              <p class="brand">YSL</p>
+              <h3>Libre</h3>
+              <p class="type">Bold Lavender</p>
+              <span class="price">Ksh 3,000</span>
+              <button class="btn-primary btn-small" onclick="orderPerfume('Libre')">Order</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="perfume-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=400&h=600&fit=crop" alt="Good Girl">
+            <div class="card-overlay">
+              <p class="brand">Carolina Herrera</p>
+              <h3>Good Girl</h3>
+              <p class="type">Sweet & Dark</p>
+              <span class="price">Ksh 3,000</span>
+              <button class="btn-primary btn-small" onclick="orderPerfume('Good Girl')">Order</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="perfume-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400&h=600&fit=crop" alt="Aventus">
+            <div class="card-overlay">
+              <p class="brand">Creed</p>
+              <h3>Aventus</h3>
+              <p class="type">Fruity & Rich</p>
+              <span class="price">Ksh 3,000</span>
+              <button class="btn-primary btn-small" onclick="orderPerfume('Aventus')">Order</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collection-footer">
+        <p>All minis are <span class="highlight">30ml</span> with <span class="highlight">custom name engraving</span> included</p>
+        <a href="collection.html" class="btn-secondary">View Full Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Our Services</p>
+        <h2>Beyond the Bar</h2>
+        <p class="section-desc">We bring the MiniScent-Bar experience to you.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M9 3v18"/>
+              <path d="M15 3v18"/>
+            </svg>
+          </div>
+          <h3>Mobile Bar</h3>
+          <p>Bring the fragrance bar experience to your event. Perfect for weddings, corporate functions, and private parties.</p>
+          <ul>
+            <li>On-site fragrance mixing</li>
+            <li>Professional consultants</li>
+            <li>Custom packaging</li>
+          </ul>
+          <button class="btn-primary" onclick="inquireService('Mobile Bar')">Book Mobile Bar</button>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Corporate Services</h3>
+          <p>Elevate your brand with bespoke corporate gifting and team-building experiences.</p>
+          <ul>
+            <li>Branded corporate gifts</li>
+            <li>Team-building workshops</li>
+            <li>Premium gifting solutions</li>
+          </ul>
+          <button class="btn-primary" onclick="inquireService('Corporate')">Inquire Corporate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fragrance Journey -->
+  <section id="fragrance-journey" class="section journey-section">
+    <div class="container">
+      <div class="section-header light">
+        <p class="section-label">The Experience</p>
+        <h2>The Fragrance Journey</h2>
+        <p class="section-desc">Discover your signature scent through an intimate, step-by-step experience.</p>
+      </div>
+
+      <!-- Progress Steps -->
+      <div class="progress-steps">
+        <div class="step active" data-step="1">
+          <div class="step-number">1</div>
+          <span>Mood</span>
+        </div>
+        <div class="step" data-step="2">
+          <div class="step-number">2</div>
+          <span>Notes</span>
+        </div>
+        <div class="step" data-step="3">
+          <div class="step-number">3</div>
+          <span>Name</span>
+        </div>
+        <div class="step" data-step="4">
+          <div class="step-number">4</div>
+          <span>Reveal</span>
+        </div>
+      </div>
+
+      <!-- Journey Steps Content -->
+      <div class="journey-content">
+        <!-- Step 1: Mood -->
+        <div class="journey-step active" id="step1">
+          <h3>What's your mood today?</h3>
+          <p>Choose the vibe that speaks to you</p>
+          <div class="mood-grid">
+            <button class="mood-card" data-mood="romantic">
+              <span class="emoji">🌙</span>
+              <h4>Romantic Evening</h4>
+              <p>Soft, sensual & unforgettable</p>
+            </button>
+            <button class="mood-card" data-mood="power">
+              <span class="emoji">💼</span>
+              <h4>Power Meeting</h4>
+              <p>Bold, confident & commanding</p>
+            </button>
+            <button class="mood-card" data-mood="brunch">
+              <span class="emoji">🥂</span>
+              <h4>Weekend Brunch</h4>
+              <p>Light, fresh & effortlessly chic</p>
+            </button>
+            <button class="mood-card" data-mood="datenight">
+              <span class="emoji">🔥</span>
+              <h4>Date Night</h4>
+              <p>Alluring, warm & magnetic</p>
+            </button>
+            <button class="mood-card" data-mood="selfcare">
+              <span class="emoji">🛁</span>
+              <h4>Self-Care Sunday</h4>
+              <p>Calming, gentle & restorative</p>
+            </button>
+            <button class="mood-card" data-mood="girlsnight">
+              <span class="emoji">✨</span>
+              <h4>Girls' Night Out</h4>
+              <p>Playful, sparkling & bold</p>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Notes (simplified) -->
+        <div class="journey-step" id="step2">
+          <h3>Choose Your Notes</h3>
+          <p>Select up to 3 top notes, 3 heart notes, and 2 base notes</p>
+          <div class="notes-tabs">
+            <button class="tab-btn active" data-tab="top">Top Notes</button>
+            <button class="tab-btn" data-tab="heart">Heart Notes</button>
+            <button class="tab-btn" data-tab="base">Base Notes</button>
+          </div>
+          <div class="notes-grid" id="notesGrid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Step 3: Name -->
+        <div class="journey-step" id="step3">
+          <h3>Name Your Creation</h3>
+          <p>This name will be elegantly printed on your bottle</p>
+          <div class="name-input">
+            <input type="text" id="perfumeName" placeholder="e.g. Midnight Rose, Amara, Queen..." maxlength="20">
+            <span class="char-count">0/20</span>
+          </div>
+        </div>
+
+        <!-- Step 4: Reveal -->
+        <div class="journey-step" id="step4">
+          <div class="reveal-card">
+            <div class="perfume-bottle">
+              <svg viewBox="0 0 100 140" class="bottle-svg">
+                <path d="M30 40 L30 20 Q30 10 50 10 Q70 10 70 20 L70 40 L75 45 L75 130 Q75 135 70 135 L30 135 Q25 135 25 130 L25 45 Z" fill="rgba(201,169,110,0.2)" stroke="#C9A96E" stroke-width="2"/>
+                <rect x="35" y="5" width="30" height="10" rx="2" fill="#C9A96E"/>
+              </svg>
+            </div>
+            <h3 id="revealName">Your Signature Scent</h3>
+            <p id="revealDesc">A unique blend crafted just for you</p>
+            <div class="reveal-notes" id="revealNotes"></div>
+            <div class="reveal-price">Ksh 3,000 <span>30ml</span></div>
+            <button class="btn-primary btn-large" onclick="orderCustom()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Add to Bag
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="journey-nav">
+        <button class="btn-outline" id="prevBtn" onclick="prevStep()">Back</button>
+        <button class="btn-primary" id="nextBtn" onclick="nextStep()">Continue</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="section testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Whispers & Smiles</p>
+        <h2>What Our Clients Say</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"I created a blend for my wedding day with my initials. The moment I opened the box, I actually cried. It was so personal and beautiful."</p>
+          <div class="author">
+            <div class="avatar">W</div>
+            <div>
+              <p class="name">Wanjiku M.</p>
+              <p class="verified">Verified Client</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Gifting this to my bestie was the best decision. She smiled for DAYS. Now we both have our signature scents from MiniScent-Bar."</p>
+          <div class="author">
+            <div class="avatar">A</div>
+            <div>
+              <p class="name">Aisha K.</p>
+              <p class="verified">Verified Client</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The Fragrance Journey game was so fun! I've already sent the challenge to three friends. We're all getting ours made this weekend."</p>
+          <div class="author">
+            <div class="avatar">N</div>
+            <div>
+              <p class="name">Njeri W.</p>
+              <p class="verified">Verified Client</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-bg">
+      <div class="orb"></div>
+      <div class="orb orb-2"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="2" class="heart-icon">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <h2>Ready to Find Your<br><span class="gold-text italic">Perfect Scent?</span></h2>
+        <p>Whether you choose from our curated collection or create your own bespoke blend, every MiniScent-Bar fragrance is a statement.</p>
+        <div class="cta-buttons">
+          <a href="#fragrance-journey" class="btn-primary btn-large">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Start the Fragrance Journey
+          </a>
+          <a href="https://www.instagram.com/shop_miniscent.bar/" target="_blank" class="btn-outline btn-large">Follow on Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="https://via.placeholder.com/60x60/C9A96E/FFFFFF?text=MSB" alt="MiniScent-Bar">
+            <span>MiniScent-Bar</span>
+          </div>
+          <p>Kenya's TOP Perfume Bar. An experiential retail space for bespoke fragrances, mobile bar services, and corporate events.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="about.html">About Us</a>
+          <a href="collection.html">Collection</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Nairobi, Kenya
+          </p>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +254 712 345 678
+          </p>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            hello@miniscent.bar
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 MiniScent-Bar. All rights reserved.</p>
+        <p>Crafted with <svg width="12" height="12" viewBox="0 0 24 24" fill="#C9A96E" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> in Nairobi</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

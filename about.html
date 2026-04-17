@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | MiniScent-Bar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .page-header { background: linear-gradient(135deg, var(--dark), var(--burgundy)); padding: 150px 0 80px; text-align: center; color: var(--cream); }
+    .page-header h1 { font-family: var(--font-serif); font-size: 3rem; margin-bottom: 15px; }
+    .about-content { padding: 80px 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about-text h2 { font-family: var(--font-serif); font-size: 2rem; color: var(--charcoal); margin-bottom: 20px; }
+    .about-text p { color: var(--text-secondary); margin-bottom: 20px; line-height: 1.8; }
+    .about-image { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; text-align: center; }
+    .stat h3 { font-family: var(--font-serif); font-size: 2.5rem; color: var(--gold); margin-bottom: 10px; }
+    .stat p { color: var(--text-secondary); font-size: 0.875rem; }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="https://via.placeholder.com/80x80/C9A96E/FFFFFF?text=MSB" alt="MiniScent-Bar">
+        <div class="logo-text">
+          <span class="logo-main">MiniScent</span>
+          <span class="logo-accent">-Bar</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="collection.html">Collection</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#fragrance-journey" class="btn-primary">Start Journey</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Our Story</h1>
+      <p>Crafting memories through scent since 2020</p>
+    </div>
+  </header>
+
+  <section class="about-content">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>The Art of Bespoke Fragrance</h2>
+          <p>MiniScent-Bar was born from a simple belief: everyone deserves a signature scent that tells their unique story. What started as a passion project in Nairobi has grown into Kenya's premier destination for bespoke perfumery.</p>
+          <p>Our expert perfumers guide you through an intimate fragrance journey, helping you discover notes that resonate with your personality, memories, and aspirations. Each 30ml bottle is hand-crafted and personalized with your chosen name.</p>
+          <p>Whether you're treating yourself, gifting a loved one, or creating corporate experiences, MiniScent-Bar transforms perfume from a product into a personal statement.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=800&h=600&fit=crop" alt="Perfume crafting">
+        </div>
+      </div>
+      
+      <div class="stats">
+        <div class="stat">
+          <h3>5,000+</h3>
+          <p>Custom Fragrances Created</p>
+        </div>
+        <div class="stat">
+          <h3>50+</h3>
+          <p>Unique Notes Available</p>
+        </div>
+        <div class="stat">
+          <h3>100+</h3>
+          <p>Corporate Events Hosted</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2024 MiniScent-Bar. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
