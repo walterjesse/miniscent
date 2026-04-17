@@ -1410,18 +1410,41 @@ button {
 @media (max-width: 480px) {
   .collection-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .perfume-card {
+    border-radius: 12px;
+  }
+  
+  .card-image {
+    aspect-ratio: 1/1;
+  }
+  
+  .card-overlay {
+    padding: 15px;
   }
   
   .service-card {
-    padding: 30px;
+    padding: 20px;
   }
   
   .reveal-card {
-    padding: 30px;
+    padding: 20px;
+  }
+  
+  .testimonials-grid {
+    gap: 15px;
   }
   
   .testimonial-card {
-    padding: 25px;
+    padding: 18px;
+    border-radius: 12px;
+  }
+  
+  .testimonial-card > p {
+    font-size: 0.85rem;
+    line-height: 1.6;
   }
 }
 
