@@ -364,7 +364,7 @@ function initStepClickHandlers() {
 // ===== ORDER FUNCTIONS =====
 function orderPerfume(name) {
   const message = encodeURIComponent(`Hi! I'd like to order "${name}" from MiniScent-Bar 🌸`);
-  window.open(`https://wa.me/?text=${message}`, '_blank');
+  window.open(`https://wa.me/254718810888?text=${message}`, '_blank');
 }
 
 function orderCustom() {
@@ -380,12 +380,12 @@ function orderCustom() {
     `Notes: ${noteNames}\n\n` +
     `Price: Ksh 3,000 (30ml)`
   );
-  window.open(`https://wa.me/?text=${message}`, '_blank');
+  window.open(`https://wa.me/254718810888?text=${message}`, '_blank');
 }
 
 function inquireService(service) {
   const message = encodeURIComponent(`Hi! I'm interested in your ${service} services. Can you provide more information?`);
-  window.open(`https://wa.me/?text=${message}`, '_blank');
+  window.open(`https://wa.me/254718810888?text=${message}`, '_blank');
 }
 
 // ===== SMOOTH SCROLL =====
