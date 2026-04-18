@@ -31,6 +31,11 @@
   /* Fonts */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Montserrat', system-ui, sans-serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-script-2: 'Parisienne', cursive;
+  --font-script-3: 'Sacramento', cursive;
+  --font-script-4: 'Allura', cursive;
+  --font-script-5: 'Alex Brush', cursive;
   
   /* Transitions */
   --transition-fast: 0.3s ease;
@@ -644,10 +649,12 @@ button {
 }
 
 .card-overlay h3 {
-  font-family: var(--font-serif);
-  font-size: 1.75rem;
+  font-family: var(--font-script);
+  font-size: 2rem;
   color: var(--cream);
   margin-bottom: 5px;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 
 .card-overlay .type {
@@ -1464,3 +1471,4 @@ button {
 .mt-2 { margin-top: 1rem; }
 .mt-3 { margin-top: 1.5rem; }
 .mt-4 { margin-top: 2rem; }
+
