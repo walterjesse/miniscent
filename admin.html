@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | MiniScent-Bar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --gold: #C9A96E;
+      --gold-dark: #A0824D;
+      --cream: #FAF7F2;
+      --cream-light: #FFFDF9;
+      --charcoal: #1A1A1A;
+      --dark: #0D0D0D;
+      --text-secondary: #5A5A5A;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Montserrat', system-ui, sans-serif;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--charcoal);
+      min-height: 100vh;
+    }
+    
+    /* Login Screen */
+    .login-screen {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, var(--dark), var(--charcoal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    
+    .login-box {
+      background: var(--cream);
+      padding: 50px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    .login-box h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    
+    .login-box p {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      margin-bottom: 30px;
+    }
+    
+    .login-box input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid var(--gold);
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      text-align: center;
+      letter-spacing: 0.5em;
+    }
+    
+    .login-box button {
+      width: 100%;
+      padding: 15px;
+      background: var(--gold);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    
+    .login-box button:hover {
+      background: var(--gold-dark);
+    }
+    
+    /* Admin Layout */
+    .admin-container {
+      display: none;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .admin-header {
+      background: var(--dark);
+      color: var(--cream);
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .admin-header h1 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+    }
+    
+    .admin-header button {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 8px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    
+    .admin-nav {
+      background: white;
+      padding: 15px 30px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      display: flex;
+      gap: 10px;
+    }
+    
+    .nav-btn {
+      padding: 10px 20px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 0.875rem;
+      border-radius: 6px;
+    }
+    
+    .nav-btn.active {
+      background: var(--gold);
+      color: white;
+    }
+    
+    .admin-content {
+      padding: 30px;
+    }
+    
+    .section {
+      display: none;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .section.active {
+      display: block;
+    }
+    
+    .section h2 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--gold-light);
+    }
+    
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--charcoal);
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    .btn-primary {
+      background: var(--gold);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    .btn-primary:hover {
+      background: var(--gold-dark);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 12px 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    
+    /* Products List */
+    .products-list {
+      margin-top: 30px;
+    }
+    
+    .product-item {
+      display: grid;
+      grid-template-columns: 60px 1fr auto auto auto;
+      gap: 15px;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .product-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    
+    .product-info h4 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+    }
+    
+    .product-info p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    
+    .price-tag {
+      font-weight: 600;
+      color: var(--gold);
+    }
+    
+    .btn-small {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .btn-edit {
+      background: var(--gold);
+      color: white;
+      border: none;
+    }
+    
+    .btn-delete {
+      background: #ff4444;
+      color: white;
+      border: none;
+    }
+    
+    /* Logo Preview */
+    .logo-preview {
+      width: 100px;
+      height: 100px;
+      border: 2px dashed var(--gold);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    
+    .logo-preview img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal.active {
+      display: flex;
+    }
+    
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .modal-header h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+    }
+    
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-item {
+        grid-template-columns: 50px 1fr;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Login Screen -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-box">
+      <h1>MiniScent-Bar</h1>
+      <p>Admin Panel</p>
+      <input type="password" id="adminPass" placeholder="Enter PIN" maxlength="4">
+      <button onclick="login()">Enter</button>
+    </div>
+  </div>
+
+  <!-- Admin Panel -->
+  <div class="admin-container" id="adminPanel">
+    <header class="admin-header">
+      <h1>🌸 MiniScent-Bar Admin</h1>
+      <button onclick="logout()">Logout</button>
+    </header>
+    
+    <nav class="admin-nav">
+      <button class="nav-btn active" onclick="showSection('shop')">Shop Details</button>
+      <button class="nav-btn" onclick="showSection('products')">Products</button>
+      <button class="nav-btn" onclick="showSection('logo')">Logo</button>
+    </nav>
+    
+    <main class="admin-content">
+      <!-- Shop Details Section -->
+      <section id="shop" class="section active">
+        <h2>Shop Details</h2>
+        <form onsubmit="saveShopDetails(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Business Name</label>
+              <input type="text" id="shopName" value="MiniScent-Bar">
+            </div>
+            <div class="form-group">
+              <label>Tagline</label>
+              <input type="text" id="shopTagline" value="Kenya's TOP Perfume Bar">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>WhatsApp Number</label>
+              <input type="text" id="shopPhone" value="254718810888">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="shopEmail" value="shopminiatureworld@gmail.com">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" id="shopLocation" value="Nairobi, Kenya">
+          </div>
+          
+          <div class="form-group">
+            <label>Instagram Handle</label>
+            <input type="text" id="shopInstagram" value="shop_miniscent.bar">
+          </div>
+          
+          <button type="submit" class="btn-primary">Save Changes</button>
+        </form>
+      </section>
+      
+      <!-- Products Section -->
+      <section id="products" class="section">
+        <h2>Products</h2>
+        <button class="btn-primary" onclick="openProductModal()">+ Add New Product</button>
+        
+        <div class="products-list" id="productsList">
+          <!-- Products loaded here -->
+        </div>
+      </section>
+      
+      <!-- Logo Section -->
+      <section id="logo" class="section">
+        <h2>Change Logo</h2>
+        
+        <div class="form-group">
+          <label>Current Logo</label>
+          <div class="logo-preview" id="logoPreview">
+            <img src="css/logo.png" alt="Current Logo" id="currentLogoImg">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Upload New Logo</label>
+          <input type="file" id="logoUpload" accept="image/*" onchange="previewLogo(event)">
+          <small style="color: var(--text-secondary);">Recommended: PNG with transparent background, 200x200px</small>
+        </div>
+        
+        <div class="form-group">
+          <label>Or enter Logo URL</label>
+          <input type="text" id="logoUrl" placeholder="https://example.com/logo.png">
+        </div>
+        
+        <button class="btn-primary" onclick="saveLogo()">Update Logo</button>
+        <button class="btn-secondary" onclick="resetLogo()" style="margin-left: 10px;">Reset to Default</button>
+      </section>
+    </main>
+  </div>
+  
+  <!-- Product Modal -->
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Add Product</h3>
+        <button class="close-btn" onclick="closeProductModal()">&times;</button>
+      </div>
+      <form onsubmit="saveProduct(event)">
+        <input type="hidden" id="productId">
+        
+        <div class="form-group">
+          <label>Product Name</label>
+          <input type="text" id="productName" required>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>Brand</label>
+            <input type="text" id="productBrand" required>
+          </div>
+          <div class="form-group">
+            <label>Price (Ksh)</label>
+            <input type="number" id="productPrice" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Type/Description</label>
+          <input type="text" id="productType" placeholder="e.g. Woody & Rich">
+        </div>
+        
+        <div class="form-group">
+          <label>Image URL</label>
+          <input type="url" id="productImage" placeholder="https://images.unsplash.com/...">
+          <small style="color: var(--text-secondary);">Leave empty for default perfume image</small>
+        </div>
+        
+        <button type="submit" class="btn-primary">Save Product</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Admin PIN (in real app, this would be hashed)
+    const ADMIN_PIN = '1234';
+    
+    // Default products
+    const defaultProducts = [
+      { id: 1, name: 'Santal 33', brand: 'Le Labo', price: 3000, type: 'Woody & Rich', image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=600&fit=crop' },
+      { id: 2, name: 'Baccarat Rouge', brand: 'MFK', price: 3000, type: 'Amber Floral', image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&h=600&fit=crop' },
+      { id: 3, name: 'Oud Wood', brand: 'Tom Ford', price: 3000, type: 'Smoky & Warm', image: 'https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=400&h=600&fit=crop' },
+      { id: 4, name: 'Libre', brand: 'YSL', price: 3000, type: 'Bold Lavender', image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400&h=600&fit=crop' },
+      { id: 5, name: 'Good Girl', brand: 'Carolina Herrera', price: 3000, type: 'Sweet & Dark', image: 'https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=400&h=600&fit=crop' },
+      { id: 6, name: 'Aventus', brand: 'Creed', price: 3000, type: 'Fruity & Rich', image: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400&h=600&fit=crop' }
+    ];
+    
+    // Check if already logged in
+    if (localStorage.getItem('adminLoggedIn') === 'true') {
+      showAdminPanel();
+    }
+    
+    function login() {
+      const pass = document.getElementById('adminPass').value;
+      if (pass === ADMIN_PIN) {
+        localStorage.setItem('adminLoggedIn', 'true');
+        showAdminPanel();
+      } else {
+        alert('Incorrect PIN');
+      }
+    }
+    
+    function logout() {
+      localStorage.removeItem('adminLoggedIn');
+      location.reload();
+    }
+    
+    function showAdminPanel() {
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('adminPanel').style.display = 'block';
+      loadProducts();
+      loadShopDetails();
+    }
+    
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+      event.target.classList.add('active');
+    }
+    
+    // Shop Details
+    function loadShopDetails() {
+      const details = JSON.parse(localStorage.getItem('shopDetails') || '{}');
+      if (details.name) document.getElementById('shopName').value = details.name;
+      if (details.tagline) document.getElementById('shopTagline').value = details.tagline;
+      if (details.phone) document.getElementById('shopPhone').value = details.phone;
+      if (details.email) document.getElementById('shopEmail').value = details.email;
+      if (details.location) document.getElementById('shopLocation').value = details.location;
+      if (details.instagram) document.getElementById('shopInstagram').value = details.instagram;
+    }
+    
+    function saveShopDetails(e) {
+      e.preventDefault();
+      const details = {
+        name: document.getElementById('shopName').value,
+        tagline: document.getElementById('shopTagline').value,
+        phone: document.getElementById('shopPhone').value,
+        email: document.getElementById('shopEmail').value,
+        location: document.getElementById('shopLocation').value,
+        instagram: document.getElementById('shopInstagram').value
+      };
+      localStorage.setItem('shopDetails', JSON.stringify(details));
+      alert('Shop details saved! Changes will appear on the website.');
+    }
+    
+    // Products
+    function loadProducts() {
+      const products = JSON.parse(localStorage.getItem('products') || JSON.stringify(defaultProducts));
+      const container = document.getElementById('productsList');
+      container.innerHTML = products.map(p => `
+        <div class="product-item">
+          <img src="${p.image || 'https://via.placeholder.com/50'}" alt="${p.name}">
+          <div class="product-info">
+            <h4>${p.name}</h4>
+            <p>${p.brand} • ${p.type}</p>
+          </div>
+          <span class="price-tag">Ksh ${p.price}</span>
+          <button class="btn-small btn-edit" onclick="editProduct(${p.id})">Edit</button>
+          <button class="btn-small btn-delete" onclick="deleteProduct(${p.id})">Delete</button>
+        </div>
+      `).join('');
+    }
+    
+    function openProductModal(product = null) {
+      document.getElementById('productModal').classList.add('active');
+      document.getElementById('modalTitle').textContent = product ? 'Edit Product' : 'Add Product';
+      if (product) {
+        document.getElementById('productId').value = product.id;
+        document.getElementById('productName').value = product.name;
+        document.getElementById('productBrand').value = product.brand;
+        document.getElementById('productPrice').value = product.price;
+        document.getElementById('productType').value = product.type;
+        document.getElementById('productImage').value = product.image || '';
+      } else {
+        document.getElementById('productId').value = '';
+        document.querySelector('#productModal form').reset();
+      }
+    }
+    
+    function closeProductModal() {
+      document.getElementById('productModal').classList.remove('active');
+    }
+    
+    function saveProduct(e) {
+      e.preventDefault();
+      const id = document.getElementById('productId').value;
+      const products = JSON.parse(localStorage.getItem('products') || JSON.stringify(defaultProducts));
+      
+      const product = {
+        id: id ? parseInt(id) : Date.now(),
+        name: document.getElementById('productName').value,
+        brand: document.getElementById('productBrand').value,
+        price: parseInt(document.getElementById('productPrice').value),
+        type: document.getElementById('productType').value,
+        image: document.getElementById('productImage').value || 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=600&fit=crop'
+      };
+      
+      if (id) {
+        const index = products.findIndex(p => p.id === parseInt(id));
+        products[index] = product;
+      } else {
+        products.push(product);
+      }
+      
+      localStorage.setItem('products', JSON.stringify(products));
+      closeProductModal();
+      loadProducts();
+      alert('Product saved!');
+    }
+    
+    function editProduct(id) {
+      const products = JSON.parse(localStorage.getItem('products') || JSON.stringify(defaultProducts));
+      const product = products.find(p => p.id === id);
+      openProductModal(product);
+    }
+    
+    function deleteProduct(id) {
+      if (!confirm('Delete this product?')) return;
+      let products = JSON.parse(localStorage.getItem('products') || JSON.stringify(defaultProducts));
+      products = products.filter(p => p.id !== id);
+      localStorage.setItem('products', JSON.stringify(products));
+      loadProducts();
+    }
+    
+    // Logo
+    function previewLogo(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('currentLogoImg').src = e.target.result;
+          localStorage.setItem('logoData', e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+    
+    function saveLogo() {
+      const url = document.getElementById('logoUrl').value;
+      if (url) {
+        localStorage.setItem('logoUrl', url);
+        document.getElementById('currentLogoImg').src = url;
+      }
+      alert('Logo updated! Note: For permanent changes, you need to replace the logo.png file in the css folder.');
+    }
+    
+    function resetLogo() {
+      localStorage.removeItem('logoData');
+      localStorage.removeItem('logoUrl');
+      document.getElementById('currentLogoImg').src = 'css/logo.png';
+      document.getElementById('logoUrl').value = '';
+      alert('Logo reset to default');
+    }
+    
+    // Load saved logo on page load
+    const savedLogo = localStorage.getItem('logoUrl') || localStorage.getItem('logoData');
+    if (savedLogo) {
+      document.getElementById('currentLogoImg').src = savedLogo;
+    }
+  </script>
+</body>
+</html>
